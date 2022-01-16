@@ -4,10 +4,10 @@
   "description": "",
   "private": true,
   "scripts": {
-   	"test": "echo \"Error: no test specified\" && exit 1",
-  	"build": "webpack"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "watch": "npm-watch"
   },
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/KriftyKoding/odinToDo.git"
@@ -27,6 +27,7 @@
     "webpack-cli": "^4.9.1"
   },
   "dependencies": {
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "npm-watch": "^0.11.0"
   }
 }
