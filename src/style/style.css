@@ -1,0 +1,15 @@
+body {
+    background-color: blue;
+    margin: 0;
+}
+
+#nav {
+    background-color: cyan;
+}
+#header {
+    background-color:darkgray;
+}
+#content {
+    background-color: blueviolet;
+}
+
