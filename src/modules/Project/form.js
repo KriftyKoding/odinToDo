@@ -10,9 +10,7 @@ function form() {
           .getElementById('myForm')
           .addEventListener('submit', formData);
       });
-    ///////////////////////
     // Form
-    ////////////////////////
     let content = document.getElementById("content");
     
     let form = document.createElement("form");
