@@ -1,33 +1,31 @@
-const formDataAuto = require("./formDataAuto");
-const formDataCollection = require("./formDataCollection");
+// submitBTTN ~~where form data is processed
+const formData = require("./formData");
+// subquestBTTN
 const subquest = require("./subquest");
 
 function form() {
-    document.addEventListener('DOMContentLoaded', () => {
+  //Submit BTTN
+  document.addEventListener('DOMContentLoaded', () => {
         document
           .getElementById('myForm')
-          // .addEventListener('submit', formDataCollection);
-          .addEventListener('submit', formDataAuto);
+          .addEventListener('submit', formData);
       });
-
-
+    ///////////////////////
+    // Form
+    ////////////////////////
     let content = document.getElementById("content");
     
     let form = document.createElement("form");
     form.id = "myForm";
-    form.action = '#';
-    form.method = "get"
     content.appendChild(form);
     
     let titleInput = document.createElement("input");
-    titleInput.id = "title"
     titleInput.name = "title"
     titleInput.type = "text"
     titleInput.placeholder = "Title"
     form.appendChild(titleInput);
 
     let dateInput = document.createElement("input")
-    dateInput.id = "dateInput"
     dateInput.name = "dateInput"
     dateInput.type = "date"
     form.appendChild(dateInput);
@@ -38,7 +36,6 @@ function form() {
     colorTitle.innerText = "Color"
     colorContainer.appendChild(colorTitle);
     let none = document.createElement("input")
-    none.className = "colorRadio"
     none.type = "radio"
     none.name = "Color"
     none.value = "none"
@@ -49,7 +46,6 @@ function form() {
     noneLabel.textContent = "none"
     colorContainer.appendChild(noneLabel);
     let red = document.createElement("input")
-    red.className = "colorRadio"
     red.type = "radio"
     red.name = "Color"
     red.value = "red"
@@ -59,7 +55,6 @@ function form() {
     redLabel.textContent = "red"
     colorContainer.appendChild(redLabel);
     let blue = document.createElement("input")
-    blue.className = "colorRadio"
     blue.type = "radio"
     blue.name = "Color"
     blue.value = "blue"
@@ -75,7 +70,6 @@ function form() {
     priorityTitle.innerText = "Priority"
     priorityContainer.appendChild(priorityTitle);
     let no = document.createElement("input")
-    no.className = "priorityRadio"
     no.type = "radio"
     no.name = "priority"
     no.value = "no"
@@ -86,7 +80,6 @@ function form() {
     noLabel.textContent = "no"
     priorityContainer.appendChild(noLabel);
     let now = document.createElement("input")
-    now.className = "priorityRadio"
     now.type = "radio"
     now.name = "priority"
     now.value = "now"
@@ -96,7 +89,6 @@ function form() {
     nowLabel.textContent = "now"
     priorityContainer.appendChild(nowLabel);
     let soon = document.createElement("input")
-    soon.className = "priorityRadio"
     soon.type = "radio"
     soon.name = "priority"
     soon.value = "soon"
@@ -114,8 +106,8 @@ function form() {
     form.appendChild(subquestBTTN);
 
     let submit = document.createElement("input");
-    submit.type = "submit"
-    submit.value = "Submit"
+    submit.type = "submit";
+    submit.value = "Submit";
     form.appendChild(submit);
 
 }
