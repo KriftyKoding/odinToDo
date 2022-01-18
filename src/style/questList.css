@@ -1,0 +1,29 @@
+#questlist {
+    background-color: blue;
+    color: white;
+}
+
+#questlist>* {
+
+    
+    color: red;
+    display: inline;
+}
+
+.checkbox {
+    /* display: inline; */
+    margin-right: 1ch;
+}
+
+.colorBlue {
+    color: lightblue;
+}
+
+.colorRed {
+    color: red;
+}
+
+.title {
+    /* display: inline; */
+    
+}
