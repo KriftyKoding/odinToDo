@@ -1,11 +1,9 @@
-#questlist {
+#questList {
     background-color: blue;
     color: white;
 }
 
-#questlist>* {
-
-    
+#questList>* {
     color: red;
     display: inline;
 }
@@ -26,4 +24,8 @@
 .title {
     /* display: inline; */
     
+}
+
+.subquest {
+    margin-left: 1rem;
 }

@@ -1,4 +1,4 @@
-const { isObject } = require("lodash");
+const { domElementCreate } = require("./domElementCreate");
 
 function Quest() {
    
@@ -27,35 +27,47 @@ function Quest() {
 
 
     let content = document.getElementById("content");
-    let questList = document.createElement("div");
-    questList.id = "questlist"
-    content.appendChild(questList);
 
-   
-    let titleDisplay =document.createElement("p");
-    titleDisplay.classList = "title"
-    titleDOM (titleDisplay, example2) 
+    let questList = {
+        elementType : "div",
+        id : "questList",
+        parentElement : content
+    }
+    domElementCreate(questList);
+    questList = document.getElementById("questList")
+////////////////////////////
+ // Display examples
+ //////////////////////////////
+    titleDOM(example2, "title");
 
-    
     example2.subquest.forEach(element => {  
-        let subquestDisplay = document.createElement("p");
-        subquestDisplay.classList = "subquest"
-        titleDOM (subquestDisplay, element)
+       titleDOM (element, "subquest")
     });
 
-    //creates Checkbox, BR, adds innerText and style to each title
-    function titleDOM (variable, element) {
-        let checkbox = document.createElement("input")
-        checkbox.type = "checkbox"
-        checkbox.classList = "checkbox"
-        questList.appendChild(checkbox)
-       
-        variable.style = "text-transform:capitalize;"
-        variable.innerText = element.title;
-        questList.appendChild(variable);
+    // creates Checkbox, BR around each ToDO
+    function titleDOM (element, className) {
+        let checkbox = {
+            elementType : "input",
+            type : "checkbox",
+            classList : `checkbox ${className}`,
+            parentElement : questList
+        }
+        domElementCreate(checkbox);
 
-        let br = document.createElement("BR");
-        questList.appendChild(br);
+        let title = {
+            elementType : "p",
+            // classList : className,
+            style : "text-transform:capitalize;",
+            innerText : element.title,
+            parentElement : questList
+        }
+        domElementCreate(title);
+     
+        let br = {
+            elementType : "br",
+            parentElement : questList
+        }
+        domElementCreate(br);
     }
     
 

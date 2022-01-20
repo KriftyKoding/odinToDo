@@ -1,6 +1,6 @@
-// submitBTTN ~~where form data is processed
+const { domElementCreate } = require("./domElementCreate");
+const {domRadioBTTNCreate } = require("./domElementCreate");
 const formData = require("./formData");
-// subquestBTTN
 const subquest = require("./subquest");
 
 function form() {
@@ -10,104 +10,129 @@ function form() {
           .getElementById('myForm')
           .addEventListener('submit', formData);
       });
-    // Form
-    let content = document.getElementById("content");
+  // Form
+  let content = document.getElementById("content");
+   
+  let form = {
+      elementType : "form",
+      id : "myForm",
+      parentElement : content
+    }
+    domElementCreate(form);
+    form = document.getElementById("myForm");
     
-    let form = document.createElement("form");
-    form.id = "myForm";
-    content.appendChild(form);
+    let titleInput = {
+      elementType : "input",
+      name : "title",
+      type : "text",
+      placeholder : "Title",
+      parentElement : form
+    }
+    domElementCreate(titleInput);
     
-    let titleInput = document.createElement("input");
-    titleInput.name = "title"
-    titleInput.type = "text"
-    titleInput.placeholder = "Title"
-    form.appendChild(titleInput);
+    let dateInput = {
+      elementType : "input",
+      name : "dateInput",
+      type : "date",
+      parentElement : form
+    }
+    domElementCreate(dateInput);
 
-    let dateInput = document.createElement("input")
-    dateInput.name = "dateInput"
-    dateInput.type = "date"
-    form.appendChild(dateInput);
-
-    let colorContainer = document.createElement("div");
-    form.appendChild(colorContainer);
-    let colorTitle = document.createElement("p")
-    colorTitle.innerText = "Color"
-    colorContainer.appendChild(colorTitle);
-    let none = document.createElement("input")
-    none.type = "radio"
-    none.name = "Color"
-    none.value = "none"
-    none.checked = true;
-    colorContainer.appendChild(none);
-    let noneLabel = document.createElement("label");
-    noneLabel.setAttribute("for", "none");
-    noneLabel.textContent = "none"
-    colorContainer.appendChild(noneLabel);
-    let red = document.createElement("input")
-    red.type = "radio"
-    red.name = "Color"
-    red.value = "red"
-    colorContainer.appendChild(red);
-    let redLabel = document.createElement("label");
-    redLabel.setAttribute("for", "red");
-    redLabel.textContent = "red"
-    colorContainer.appendChild(redLabel);
-    let blue = document.createElement("input")
-    blue.type = "radio"
-    blue.name = "Color"
-    blue.value = "blue"
-    colorContainer.appendChild(blue);
-    let blueLabel = document.createElement("label");
-    blueLabel.setAttribute("for", "blue");
-    blueLabel.textContent = "blue"
-    colorContainer.appendChild(blueLabel);
-
-    let priorityContainer = document.createElement("div");
-    form.appendChild(priorityContainer);
-    let priorityTitle = document.createElement("p")
-    priorityTitle.innerText = "Priority"
-    priorityContainer.appendChild(priorityTitle);
-    let no = document.createElement("input")
-    no.type = "radio"
-    no.name = "priority"
-    no.value = "no"
-    no.checked = true;
-    priorityContainer.appendChild(no);
-    let noLabel = document.createElement("label");
-    noLabel.setAttribute("for", "no");
-    noLabel.textContent = "no"
-    priorityContainer.appendChild(noLabel);
-    let now = document.createElement("input")
-    now.type = "radio"
-    now.name = "priority"
-    now.value = "now"
-    priorityContainer.appendChild(now);
-    let nowLabel = document.createElement("label");
-    nowLabel.setAttribute("for", "now");
-    nowLabel.textContent = "now"
-    priorityContainer.appendChild(nowLabel);
-    let soon = document.createElement("input")
-    soon.type = "radio"
-    soon.name = "priority"
-    soon.value = "soon"
-    priorityContainer.appendChild(soon);
-    let soonLabel = document.createElement("label");
-    soonLabel.setAttribute("for", "soon");
-    soonLabel.textContent = "soon"
-    priorityContainer.appendChild(soonLabel);
+    let colorContainer = {
+      elementType : "div",
+      id : "colorContainer",
+      parentElement : form
+    }
+    domElementCreate(colorContainer);
+    colorContainer = document.getElementById("colorContainer")
+    let colorTitle = {
+      elementType : "p",
+      innerText : "Color",
+      parentElement : colorContainer
+    }
+    domElementCreate(colorTitle);
+    let radioBTTNColorNone = {
+      name : "Color",
+      value: "none",
+      checked: true,
+      parentElement : colorContainer,
+      label : true,
+      setAttribute : ["for", "none"],
+    }
+    domRadioBTTNCreate(radioBTTNColorNone);
+    let radioBTTNColorRed = {
+      name : "Color",
+      value: "red",
+      parentElement : colorContainer,
+      label : true,
+      setAttribute : ["for", "red"],
+    }
+    domRadioBTTNCreate(radioBTTNColorRed);
+    let radioBTTNColorBlue = {
+      name : "Color",
+      value: "blue",
+      parentElement : colorContainer,
+      label : true,
+      setAttribute : ["for", "blue"],
+    }
+    domRadioBTTNCreate(radioBTTNColorBlue);
 
 
-    let subquestBTTN = document.createElement("input");
-    subquestBTTN.type = "button"
-    subquestBTTN.onclick = subquest;
-    subquestBTTN.value = "Add Subquest"
-    form.appendChild(subquestBTTN);
+    let priorityContainer = {
+      elementType : "div",
+      id : "priorityContainer",
+      parentElement : form
+    }
+    domElementCreate(priorityContainer);
+    priorityContainer = document.getElementById("priorityContainer")
+    let priorityTitle = {
+      elementType : "p",
+      innerText : "Priority",
+      parentElement : priorityContainer
+    }
+    domElementCreate(priorityTitle);
+    let radioBTTNPriorityNone = {
+      name : "Priority",
+      value: "none",
+      checked: true,
+      parentElement : priorityContainer,
+      label : true,
+      setAttribute : ["for", "none"],
+    }
+    domRadioBTTNCreate(radioBTTNPriorityNone);
+    let radioBTTNPriorityNow = {
+      name : "Priority",
+      value: "now",
+      parentElement : priorityContainer,
+      label : true,
+      setAttribute : ["for", "now"],
+    }
+    domRadioBTTNCreate(radioBTTNPriorityNow);
+    let radioBTTNPrioritySoon = {
+      name : "Priority",
+      value: "soon",
+      parentElement : priorityContainer,
+      label : true,
+      setAttribute : ["for", "soon"],
+    }
+    domRadioBTTNCreate(radioBTTNPrioritySoon);
 
-    let submit = document.createElement("input");
-    submit.type = "submit";
-    submit.value = "Submit";
-    form.appendChild(submit);
+    let subquestBTTN = {
+      elementType : "input",
+      type : "button",
+      onclick : subquest,
+      value  : "Add Subquest",
+      parentElement : form
+    }
+    domElementCreate(subquestBTTN);
 
+    let submit = {
+      elementType : "input",
+      type : "submit",
+      value  : "submit",
+      parentElement : form
+    }
+    domElementCreate(submit);
 }
 
 module.exports = form;
