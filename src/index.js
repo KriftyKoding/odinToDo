@@ -1,12 +1,13 @@
 import _ from 'lodash';
 import "./style/style.css";
-import project from "./modules/projects"
+import "./style/questList.css"
 import layout from './modules/layout/pageLayout';
-import displayContent from './modules/layout/content';
-import displayHeader from './modules/layout/header';
-import displayNav from './modules/layout/nav';
+import form from "./modules/Project/form";
+import Quest from './modules/Project/quest';
+import test from './modules/Project/test';
 
 layout();
-// displayContent();
-// displayHeader();
-// displayNav();
+Quest();
+form();
+
+
